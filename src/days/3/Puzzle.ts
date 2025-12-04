@@ -41,7 +41,6 @@ export const second = (input: string) => {
         const endIndex = b.length - missing + 1;
 
         const searchableArray = b.slice(startIndex, endIndex);
-        //console.log({ missing, startIndex, endIndex, searchableArray });
 
         const newDigit = searchableArray.toSorted((x, y) => y - x)[0];
 
