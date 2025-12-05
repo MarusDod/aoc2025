@@ -21,3 +21,5 @@ export const sumBy = <T>(arr: T[], fn: (x: T) => number): number => {
 };
 
 export const identity = <T>(x: T): T => x;
+
+export const unique = <T>(x: T[]): T[] => [...new Set(x)];
