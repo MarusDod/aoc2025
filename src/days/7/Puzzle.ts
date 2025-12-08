@@ -1,4 +1,4 @@
-import { add, sumBy } from "../../utils/fp.ts";
+import { sumBy } from "../../utils/fp.ts";
 
 type Piece = "S" | "|" | "^" | ".";
 

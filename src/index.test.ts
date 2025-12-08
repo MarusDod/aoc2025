@@ -1,17 +1,17 @@
-import { readdirSync } from 'node:fs';
-import { describe, it, type TestContext } from 'node:test';
-import type { Puzzle } from './types/Puzzle.ts';
-import readFile from './utils/readFile.ts';
+import { readdirSync } from "node:fs";
+import { describe, it, type TestContext } from "node:test";
+import type { Puzzle } from "./types/Puzzle.ts";
+import readFile from "./utils/readFile.ts";
 
-describe('AoC test runner', () => {
-  const dirs = readdirSync('./src/days', { withFileTypes: true })
+describe("AoC test runner", () => {
+  const dirs = readdirSync("./src/days", { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
     .map((dirent) => dirent.name);
 
   for (const day of dirs) {
     it(`Tests day ${day}`, async (t: TestContext) => {
-      let exampleOneInput = '';
-      let exampleTwoInput = '';
+      let exampleOneInput = "";
+      let exampleTwoInput = "";
       const puzzleName = day;
 
       try {
@@ -32,11 +32,11 @@ describe('AoC test runner', () => {
       }: Puzzle = await import(`./days/${puzzleName}/Puzzle.ts`);
 
       t.assert.deepStrictEqual(
-        first(exampleOneInput).toString(),
+        first(exampleOneInput, true).toString(),
         expectedFirstSolution.toString()
       );
       t.assert.deepStrictEqual(
-        second(exampleTwoInput).toString(),
+        second(exampleTwoInput, true).toString(),
         expectedSecondSolution.toString()
       );
     });
